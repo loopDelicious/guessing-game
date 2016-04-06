@@ -4,7 +4,7 @@ from random import randint
 
 # Greet player and get player name
 player_name = raw_input("Hello - what is your name? ")
-print "Hi %s, I'm thinking of a number between 1 and 100." % player_name
+print "Hi {}, I'm thinking of a number between 1 and 100.".format(player_name)
 
 guessed_it = False
 
@@ -12,6 +12,7 @@ guessed_it = False
 while guessed_it == False:
     # Generate a random number between 1 and 100
     computer = randint(1, 100)
+    attempts = 0
     
     while guessed_it == False:
 
@@ -25,13 +26,16 @@ while guessed_it == False:
             print "Out of range. Please guess again."
             continue
 
-           # Provide feedback if the guess is too high, low, or correct
+        # Add an attempt on this round
+        attempts += 1
+        # Provide feedback if the guess is too high, low, or correct
         if guess > computer:
             print "Your guess is too high! Please guess again. "
         elif guess < computer:
             print "Your guess is too low! Please guess again. "
         else:
             print "Congratulations!  You guessed correctly."
+            print "It took you {} tries!".format(attempts)
             guessed_it = True
 
 
