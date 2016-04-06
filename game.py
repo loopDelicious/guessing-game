@@ -34,4 +34,9 @@ while guessed_it == False:
             print "Congratulations!  You guessed correctly."
             guessed_it = True
 
+
+    play_again = raw_input("Would you like to play again - Y or N?")
+    if play_again != "Y":
+        break
+
     
